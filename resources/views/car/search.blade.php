@@ -1,5 +1,5 @@
 <x-app-layout>
-<main>
+  <main>
     <!-- Found Cars -->
     <section>
       <div class="container">
