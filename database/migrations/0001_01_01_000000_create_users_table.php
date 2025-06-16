@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('phone', 45)->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('role', ['buyer', 'seller', 'admin'])->default('buyer');
             $table->string('google_id')->nullable();
-            $table->string('facebook_id')->nullable();            
+            $table->string('facebook_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

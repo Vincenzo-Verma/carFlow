@@ -13,11 +13,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Create test users first
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+        ]);
+
+        // Create additional test users
+        User::factory(10)->create();
+
+        // Call all seeders in the correct order (respecting foreign key constraints)
+        $this->call([
+            CarTypesTableSeeder::class,
+            FuelTypesTableSeeder::class,
+            MakersTableSeeder::class,
+            ModelsTableSeeder::class,
+            StatesTableSeeder::class,
+            CitiesTableSeeder::class,
+            CarsTableSeeder::class,
+            CarsFeaturesTableSeeder::class,
+            CarImagesTableSeeder::class,
+            FavouriteCarsTableSeeder::class,
         ]);
     }
 }
